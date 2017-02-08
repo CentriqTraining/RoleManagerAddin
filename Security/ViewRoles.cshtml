@@ -1,0 +1,45 @@
+﻿@model IEnumerable<RecordCollection.Models.RoleManagement_DTO>
+
+@{
+    ViewBag.Title = "ViewRoles";
+}
+
+<h2>Roles</h2>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Users)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                List of Users
+                <ul>
+                    @foreach (var user in item.Users)
+                    {
+                        <li>@user</li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
